@@ -1,0 +1,49 @@
+<!-- Registration Form -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url("./assets/images/main.jpg");
+        }
+        .login_form_user{
+    background-image: url(./assets/images/f-bg.webp);
+    background-position: cover;
+    margin: 0 auto;
+    border: 2px grey;
+    width: 400px;
+    padding: 50px;
+    margin-top: 30px;
+    background-repeat: no-repeat;
+}
+.login_form_user fieldset{
+    border: none;
+    font-size: 25px;
+    font-weight: bold;
+    color:black;
+    text-shadow: 1px 1px brown;
+}
+.login_form_user button{
+    padding: 10px;
+}
+    </style>
+</head>
+<body>
+    <div class="login_form_user">
+    <form target="_blank">
+        
+        <fieldset> <legend>Login Form</legend>
+        <label for="name">User Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="Password">Password:</label>
+        <input type="password" id="Password" name="Password" required><br><br>    
+        <button type="button">Submit</button>
+        </fieldset>
+    </form>
+    </div>
+</body>
+</html>

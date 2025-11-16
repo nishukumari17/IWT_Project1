@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <!-- Importing Tailwind CSS from CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configuration for Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Applying the Inter font to the body */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900">
+
+    <!-- Main container to center the content -->
+    <div class="flex items-center justify-center min-h-screen p-4">
+        
+        <!-- Dashboard Card -->
+        <div class="w-full max-w-md p-8 space-y-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
+            
+            <!-- Header Section -->
+            <div class="text-center">
+                <h1 class="text-3xl font-bold text-gray-900 dark:text-white">
+                    Welcome!
+                </h1>
+                <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                    Please log in or register to continue.
+                </p>
+            </div>
+
+            <!-- Button Container -->
+            <div class="space-y-4">
+                <!-- Login Button -->
+                <button 
+                    type="button" 
+                    class="w-full px-4 py-3 font-semibold text-white bg-blue-600 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition duration-300 ease-in-out transform hover:-translate-y-1">
+                    <a href="./login.html">Login</a>
+                </button>
+                
+                <!-- Registration Button -->
+                <button 
+                    type="button" 
+                    class="w-full px-4 py-3 font-semibold text-gray-800 bg-gray-200 rounded-lg shadow-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-75 transition duration-300 ease-in-out transform hover:-translate-y-1 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600">
+                    <a href="./registration.html">Registration</a>
+                </button>
+            </div>
+
+            <!-- Footer Link -->
+            <div class="text-center mt-6">
+                <a href="#" class="text-sm text-blue-600 hover:underline dark:text-blue-400">
+                    Forgot your password?
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
