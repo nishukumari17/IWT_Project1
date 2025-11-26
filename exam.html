@@ -3,107 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Exam - Photography Assessment</title>
-    
-    <link rel="stylesheet" href="exam.css">
+    <title>E-Exam | Photography Test</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('your-bg.jpg') no-repeat center/cover;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 60%;
+            margin: 30px auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #333;
+            letter-spacing: 1px;
+        }
+
+        .btn {
+            display: block;
+            margin: 20px auto;
+            padding: 12px 25px;
+            background: black;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 17px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #444;
+        }
+
+        .question {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-left: 5px solid #555;
+            background: #f7f7f7;
+            border-radius: 8px;
+        }
+
+        label {
+            display: block;
+            margin: 6px 0;
+            cursor: pointer;
+        }
+
+        #examSection, #resultSection {
+            display: none;
+        }
+
+        .result-box {
+            text-align: center;
+            padding: 20px;
+            background: #e8f5e9;
+            border-radius: 10px;
+        }
+
+        .score {
+            font-size: 28px;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+    </style>
 
 </head>
 <body>
 
-    <header id="page-header">
-        <h1>E-Exam Portal</h1>
-    </header>
+<div class="container">
 
-    <div class="container">
-        
-        <h1 style="color: #007bff; text-align: center; margin-bottom: 2rem;">
-            Photography Volunteer Assessment
-        </h1>
-        
-        <div class="exam-layout">
-            
-            <main class="exam-main">
-                <div class="question-header">
-                    <h3>Question 1 of 20</h3>
-                    <p>What is the "exposure triangle" in photography?</p>
-                </div>
-                
-                <form action="#" method="get" onsubmit="return false;">
-                    <ul class="options-list">
-                        <li>
-                            <label><input type="radio" name="q1" value="a"> A) Shutter Speed, ISO, White Balance</label>
-                        </li>
-                        <li>
-                            <label><input type="radio" name="q1" value="b"> B) Aperture, Shutter Speed, ISO</label>
-                        </li>
-                        <li>
-                            <label><input type="radio" name="q1" value="c"> C) Focus, Aperture, Zoom</label>
-                        </li>
-                        <li>
-                            <label><input type="radio" name="q1" value="d"> D) ISO, Focus, Focal Length</label>
-                        </li>
-                    </ul>
-                    
-                    <div class="exam-buttons">
-                        <button type="button" class="btn-save">Save & Next</button>
-                        <button type="button" class="btn-mark">Mark for Review</button>
-                        <button type="reset" class="btn-clear">Clear Response</button>
-                    </div>
-                    
-                    <div class="exam-buttons">
-                         <button type="submit" class="btn-submit">Submit Test</button>
-                    </div>
-                </form>
-            </main>
-            
-            <aside id="exam-sidebar">
-                <div class="user-info">
-                    <img src="https://placehold.co/100x100/007bff/white?text=User" alt="User Photo">
-                    <h4>John Doe</h4>
-                    <p>Time Left: 00:29:45</p>
-                </div>
-                
-                <h4>Question Palette</h4>
-                <div class="question-palette">
-                    <div class="palette-box current">1</div> <div class="palette-box answered">2</div> <div class="palette-box not-answered">3</div> <div class="palette-box marked">4</div> <div class="palette-box">5</div> <div class="palette-box">6</div>
-                    <div class="palette-box">7</div>
-                    <div class="palette-box answered">8</div>
-                    <div class="palette-box">9</div>
-                    <div class="palette-box">10</div>
-                    <div class="palette-box">11</div>
-                    <div class="palette-box">12</div>
-                    <div class="palette-box not-answered">13</div>
-                    <div class="palette-box">14</div>
-                    <div class="palette-box">15</div>
-                    <div class="palette-box marked">16</div>
-                    <div class="palette-box">17</div>
-                    <div class="palette-box">18</div>
-                    <div class="palette-box">19</div>
-                    <div class="palette-box">20</div>
-                </div>
-                
-                <ul class="palette-legend">
-                    <li class="legend-item">
-                        <span class="legend-color" style="background-color: #28a745;"></span> Answered
-                    </li>
-                    <li class="legend-item">
-                        <span class="legend-color" style="background-color: #dc3545;"></span> Not Answered
-                    </li>
-                    <li class="legend-item">
-                        <span class="legend-color" style="background-color: #007bff;"></span> Current
-                    </li>
-                    <li class="legend-item">
-                        <span class="legend-color" style="background-color: #6f42c1;"></span> Marked
-                    </li>
-                    <li class="legend-item">
-                        <span class="legend-color" style="background-color: #f0f0f0;"></span> Not Visited
-                    </li>
-                </ul>
-            </aside>
-            
-        </div> </div> <footer id="page-footer">
-        <p>&copy; 2025 Photography Events Inc. All rights reserved.</p>
-    </footer>
+    <h1> E - Exam</h1>
+    <h2>Online Photography Test</h2>
+
+    <!-- Instructions -->
+    <div id="instructionSection">
+        <p><b>Total Questions:</b> 10</p>
+        <p><b>Marks per Question:</b> 1</p>
+        <p><b>Rules:</b> Select one correct option for each question.</p>
+        <button class="btn" onclick="startExam()">Start Exam</button>
+    </div>
+
+    <!-- Exam Questions -->
+    <div id="examSection">
+        <form id="examForm">
+
+            <div class="question">
+                <p><b>1. What does ISO control?</b></p>
+                <label><input type="radio" name="q1" value="b"> Brightness/Sensitivity</label>
+                <label><input type="radio" name="q1" value="a"> Color Tone</label>
+                <label><input type="radio" name="q1" value="c"> Focus</label>
+                <label><input type="radio" name="q1" value="d"> Zoom</label>
+            </div>
+
+            <div class="question">
+                <p><b>2. Which aperture is best for portraits?</b></p>
+                <label><input type="radio" name="q2" value="a"> f/1.8</label>
+                <label><input type="radio" name="q2" value="b"> f/11</label>
+                <label><input type="radio" name="q2" value="c"> f/22</label>
+                <label><input type="radio" name="q2" value="d"> f/8</label>
+            </div>
+
+            <div class="question">
+                <p><b>3. What does the shutter speed control?</b></p>
+                <label><input type="radio" name="q3" value="b"> Motion/Freeze</label>
+                <label><input type="radio" name="q3" value="a"> Color</label>
+                <label><input type="radio" name="q3" value="c"> White Balance</label>
+                <label><input type="radio" name="q3" value="d"> Zoom</label>
+            </div>
+
+            <button type="button" class="btn" onclick="submitExam()">Submit Exam</button>
+
+        </form>
+    </div>
+
+    <!-- Result -->
+    <div id="resultSection" class="result-box">
+        <p class="score" id="scoreText"></p>
+        <p id="feedback"></p>
+    </div>
+
+</div>
+
+<script>
+
+    function startExam() {
+        document.getElementById("instructionSection").style.display = "none";
+        document.getElementById("examSection").style.display = "block";
+    }
+
+    function submitExam() {
+        let correct = 0;
+
+        // Correct answers
+        const answers = {
+            q1: "b",
+            q2: "a",
+            q3: "b"
+        };
+
+        for (let q in answers) {
+            let selected = document.querySelector(`input[name="${q}"]:checked`);
+            if (selected && selected.value === answers[q]) {
+                correct++;
+            }
+        }
+
+        // Display results
+        document.getElementById("examSection").style.display = "none";
+        document.getElementById("resultSection").style.display = "block";
+
+        document.getElementById("scoreText").innerText = `Your Score: ${correct} / 3`;
+
+        if (correct === 3) {
+            document.getElementById("feedback").innerText = "Excellent! 🎉";
+        } 
+        else if (correct === 2) {
+            document.getElementById("feedback").innerText = "Good Job! 😊";
+        } 
+        else {
+            document.getElementById("feedback").innerText = "Keep Practicing! 📸";
+        }
+    }
+
+</script>
 
 </body>
 </html>
