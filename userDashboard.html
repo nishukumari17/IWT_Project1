@@ -1,73 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Dashboard</title>
-    <!-- Importing Tailwind CSS from CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Configuration for Tailwind -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                },
-            },
-        }
-    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome</title>
+
     <style>
-        /* Applying the Inter font to the body */
+        /* Page Background with Image */
         body {
-            font-family: 'Inter', sans-serif;
+            background: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1950&q=80")
+                        no-repeat center center/cover;
+            height: 100vh;
+            margin: 0;
+            font-family: "Inter", sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Glassmorphic Card */
+        .card {
+            width: 450px;
+            padding: 40px;
+            text-align: center;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Heading */
+        .card h1 {
+            color: #ffffff;
+            margin: 0;
+            font-size: 34px;
+            font-weight: 700;
+        }
+
+        /* Subtitle */
+        .card p {
+            margin: 10px 0 25px;
+            font-size: 17px;
+            color: #e6e6e6;
+        }
+
+        /* Common Button Style */
+        .btn {
+            width: 100%;
+            padding: 16px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        /* Login Button */
+        .btn-primary {
+            background: linear-gradient(90deg, #1e5bff, #4e8aff);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(30, 91, 255, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(30, 91, 255, 0.6);
+        }
+
+        /* Registration Button */
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.6);
+            color: #333;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.8);
+            transform: scale(1.05);
+        }
+
+        /* Forgot Password */
+        .forgot {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            font-size: 15px;
+            color: #ffffff;
+            transition: 0.2s;
+        }
+
+        .forgot:hover {
+            text-decoration: underline;
+            opacity: 0.8;
         }
     </style>
+
 </head>
-<body class="bg-gray-100 dark:bg-gray-900">
 
-    <!-- Main container to center the content -->
-    <div class="flex items-center justify-center min-h-screen p-4">
+<body>
+
+    <div class="card">
+        <h1>Welcome!</h1>
+        <p>Please log in or register to continue.</p>
+        <a href="login.html">
+            <button class="btn btn-primary">Login</button>
+        </a>
+        <a href="registration.html">
+            <button class="btn btn-secondary">Registration</button>
+        </a>
         
-        <!-- Dashboard Card -->
-        <div class="w-full max-w-md p-8 space-y-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
-            
-            <!-- Header Section -->
-            <div class="text-center">
-                <h1 class="text-3xl font-bold text-gray-900 dark:text-white">
-                    Welcome!
-                </h1>
-                <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                    Please log in or register to continue.
-                </p>
-            </div>
 
-            <!-- Button Container -->
-            <div class="space-y-4">
-                <!-- Login Button -->
-                <button 
-                    type="button" 
-                    class="w-full px-4 py-3 font-semibold text-white bg-blue-600 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition duration-300 ease-in-out transform hover:-translate-y-1">
-                    <a href="./login.html">Login</a>
-                </button>
-                
-                <!-- Registration Button -->
-                <button 
-                    type="button" 
-                    class="w-full px-4 py-3 font-semibold text-gray-800 bg-gray-200 rounded-lg shadow-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-75 transition duration-300 ease-in-out transform hover:-translate-y-1 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600">
-                    <a href="./registration.html">Registration</a>
-                </button>
-            </div>
-
-            <!-- Footer Link -->
-            <div class="text-center mt-6">
-                <a href="#" class="text-sm text-blue-600 hover:underline dark:text-blue-400">
-                    Forgot your password?
-                </a>
-            </div>
-
-        </div>
+        <a href="#" class="forgot">Forgot your password?</a>
     </div>
 
 </body>

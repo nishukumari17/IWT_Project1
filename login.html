@@ -1,49 +1,167 @@
-<!-- Registration Form -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+
     <style>
-        body{
-            background-image: url("./assets/images/main.jpg");
+        body {
+            background: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1950&q=80")
+                no-repeat center center/cover;
+            height: 100vh;
+            margin: 0;
+            font-family: "Inter", sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        .login_form_user{
-    background-image: url(./assets/images/f-bg.webp);
-    background-position: cover;
-    margin: 0 auto;
-    border: 2px grey;
-    width: 400px;
-    padding: 50px;
-    margin-top: 30px;
-    background-repeat: no-repeat;
-}
-.login_form_user fieldset{
-    border: none;
-    font-size: 25px;
-    font-weight: bold;
-    color:black;
-    text-shadow: 1px 1px brown;
-}
-.login_form_user button{
-    padding: 10px;
-}
+
+        .card {
+            width: 420px;
+            padding: 40px;
+            text-align: center;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .card h2 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 30px;
+        }
+
+        .input-group {
+            text-align: left;
+            margin-bottom: 18px;
+        }
+
+        label {
+            color: #fff;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            margin-top: 6px;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.7);
+            font-size: 16px;
+            outline: none;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 15px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, #1e5bff, #4e8aff);
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(30, 91, 255, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 18px rgba(30, 91, 255, 0.6);
+        }
+
+        .error {
+            color: #ff4b4b;
+            margin-top: -8px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            display: none;
+        }
+
+        .extra-links {
+            margin-top: 20px;
+        }
+
+        .extra-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 15px;
+        }
+        .extra-links a:hover {
+            opacity: 0.8;
+        }
     </style>
 </head>
+
 <body>
-    <div class="login_form_user">
-    <form target="_blank">
-        
-        <fieldset> <legend>Login Form</legend>
-        <label for="name">User Name:</label>
-        <input type="text" id="name" name="name" required><br><br>
-        <label for="Password">Password:</label>
-        <input type="password" id="Password" name="Password" required><br><br>    
-        <button type="button">Submit</button>
-        </fieldset>
-    </form>
+
+    <div class="card">
+        <h2>Login</h2>
+
+        <form id="loginForm">
+            <div class="input-group">
+                <label>Email</label>
+                <input type="text" id="email" placeholder="Enter your email">
+                <p class="error" id="emailError">Please enter a valid email</p>
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" id="password" placeholder="Enter your password">
+                <p class="error" id="passError">Password must be at least 6 characters</p>
+            </div>
+
+            <button class="btn btn-primary" type="submit">Login</button>
+        </form>
+
+        <div class="extra-links">
+            <a href="#">Forgot Password?</a>
+        </div>
     </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            let email = document.getElementById("email").value;
+            let pass = document.getElementById("password").value;
+
+            let emailError = document.getElementById("emailError");
+            let passError = document.getElementById("passError");
+
+            let valid = true;
+
+            // Email Validation
+            if (!email.includes("@") || !email.includes(".")) {
+                emailError.style.display = "block";
+                valid = false;
+            } else {
+                emailError.style.display = "none";
+            }
+
+            // Password Validation
+            if (pass.length < 6) {
+                passError.style.display = "block";
+                valid = false;
+            } else {
+                passError.style.display = "none";
+            }
+
+            if (valid) {
+                alert("Login Successful!");
+                // Here you can redirect to homepage
+            }
+        });
+    </script>
+
 </body>
 </html>

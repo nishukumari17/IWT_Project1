@@ -1,63 +1,202 @@
-<!-- Registration Form -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Photography Website - Registration</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body{
+            background: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee') no-repeat center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container{
+            width: 90%;
+            max-width: 430px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid #ffffff50;
+            box-shadow: 0 0 25px rgba(0,0,0,0.3);
+        }
+
+        h2{
+            text-align: center;
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 26px;
+        }
+
+        .input-box {
+            margin-bottom: 18px;
+        }
+
+        .input-box label {
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .input-box input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            border: none;
+            border-radius: 7px;
+            outline: none;
+            background: rgba(255, 255, 255, 0.4);
+            color: #000;
+        }
+
+        .input-box input::placeholder {
+            color: #444;
+        }
+
+        .terms {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .terms input {
+            width: 18px;
+            height: 18px;
+            margin-right: 8px;
+        }
+
+        .terms a {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        .btn{
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(to right, #ff4f8b, #a16eff);
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 30px;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover{
+            opacity: 0.9;
+        }
+
+        .message{
+            margin-top: 10px;
+            text-align: center;
+            font-weight: 600;
+            display: none;
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
-    <div class="form_user">
-    <form target="_blank">
-        
-        <fieldset> <legend>Registration Form</legend>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required><br><br>
-        
-        
-        <label for="id">ID:</label>
-        <input type="text" id="id" name="id" required><br><br>
 
-        <label for="Password">Password:</label>
-        <input type="password" id="Password" name="Password" required><br><br>
-        
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br><br>
+<div class="container">
+    <h2>Create Account</h2>
 
-        <label for="age">Age:</label>
-        <input type="number" id="age" name="age" required><br><br>
-
-        <label for="gender">Gender:</label>
-        <input type="radio" id="male" name="gender" value="male" required><label for="male">Male</label>
-        <input type="radio" id="female" name="gender" value="female" required><label for="female">Female</label>
-        <input type="radio" id="other" name="gender" value="other" required><label for="other">Other</label><br><br>
-
-        <label for="collegeAddress">College Address:</label>
-        <textarea id="collegeAddress" name="collegeAddress" rows="10" cols="30" required>Enter your address here...</textarea><br><br>
-
-        <Label for="branch">Branch:</Label>
-        <input type="text" id="branch" name="branch" required><br><br>
-
-        <label for="techSkills">Technical Skills:</label>
-        <input type="checkbox" id="HTML" name="skills" value="HTML">
-        <label for="HTML">HTML</label>
-        <input type="checkbox" id="CSS" name="skills" value="CSS">
-        <label for="CSS">CSS</label>
-        <input type="checkbox" id="Javascript" name="skills" value="Javascript">
-        <label for="Javascript">Javascript</label><br><br>
-
-        <label for="Resume">Upload Resume:</label>
-        <input type="file" id="Resume" name="Resume" accept=".pdf,.doc,.docx" required><br><br>
-
-        <label for="profilePic">Upload Profile Picture:</label>
-        <input type="file" id="profilePic" name="profilePic" accept="image/*" required><br><br>
-
-        <button type="button">Submit</button>
-        <button type="reset">Reset</button>
-        </fieldset>
-    </form>
+    <div class="input-box">
+        <label>Full Name</label>
+        <input type="text" id="fullname" placeholder="Enter your full name">
     </div>
+
+    <div class="input-box">
+        <label>Email</label>
+        <input type="email" id="email" placeholder="Enter your email">
+    </div>
+
+    <div class="input-box">
+        <label>Username</label>
+        <input type="text" id="username" placeholder="Enter username">
+    </div>
+
+    <div class="input-box">
+        <label>Password</label>
+        <input type="password" id="password" placeholder="Create password">
+    </div>
+
+    <div class="input-box">
+        <label>Repeat Password</label>
+        <input type="password" id="repeatPassword" placeholder="Re-enter password">
+    </div>
+
+    <div class="terms">
+        <input type="checkbox" id="terms">
+        <label for="terms">I agree to the <a href="#">Terms of User</a></label>
+    </div>
+
+    <button class="btn" onclick="validateForm()">Sign Up</button>
+
+    <p class="message" id="msg"></p>
+</div>
+
+<script>
+function validateForm() {
+    let fullname = document.getElementById("fullname").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let username = document.getElementById("username").value.trim();
+    let password = document.getElementById("password").value.trim();
+    let repeatPassword = document.getElementById("repeatPassword").value.trim();
+    let terms = document.getElementById("terms").checked;
+    let msg = document.getElementById("msg");
+
+    msg.style.display = "block";
+
+    if (fullname === "" || email === "" || username === "" || password === "" || repeatPassword === "") {
+        msg.style.color = "yellow";
+        msg.innerText = "All fields are required!";
+        return;
+    }
+
+    let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    if (!emailPattern.test(email)) {
+        msg.style.color = "yellow";
+        msg.innerText = "Enter a valid email address!";
+        return;
+    }
+
+    if (password !== repeatPassword) {
+        msg.style.color = "yellow";
+        msg.innerText = "Passwords do not match!";
+        return;
+    }
+
+    if (!terms) {
+        msg.style.color = "yellow";
+        msg.innerText = "Please agree to the Terms of User!";
+        return;
+    }
+
+    msg.style.color = "lightgreen";
+    msg.innerText = "Registration Successful!";
+
+    document.getElementById("fullname").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("username").value = "";
+    document.getElementById("password").value = "";
+    document.getElementById("repeatPassword").value = "";
+    document.getElementById("terms").checked = false;
+}
+</script>
+
 </body>
 </html>
