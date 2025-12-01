@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Admin - Bookings</title>
+<style>
+body {
+    font-family: Arial;
+}
+table {
+    width: 90%;
+    margin: auto;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid #333;
+    padding: 10px;
+    text-align: center;
+}
+button {
+    padding: 5px 10px;
+}
+.logout-btn {
+    float: right;
+    margin: 20px;
+    padding: 8px 15px;
+    background: crimson;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🔒 LOGIN CHECK -->
+<script>
+if (localStorage.getItem("adminAuth") !== "true") {
+    alert("You must login first!");
+    window.location.href = "login.html";
+}
+</script>
+
+<button class="logout-btn" onclick="logout()">Logout</button>
+
+<h2 style="text-align:center">📸 All Bookings</h2>
+
+<table id="bookTable">
+    <thead>
+        <tr>
+            <th>ID</th><th>Name</th><th>Email</th><th>Phone</th>
+            <th>Service</th><th>Date</th><th>Message</th><th>Actions</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<script>
+// Load bookings
+fetch("http://localhost:5000/bookings")
+.then(res => res.json())
+.then(data => {
+    const tbody = document.querySelector("#bookTable tbody");
+    tbody.innerHTML = ""; // clear old rows
+
+    data.forEach(b => {
+        tbody.innerHTML += `
+        <tr>
+            <td>${b.id}</td>
+            <td>${b.full_name}</td>
+            <td>${b.email}</td>
+            <td>${b.phone}</td>
+            <td>${b.service}</td>
+            <td>${b.date}</td>
+            <td>${b.message}</td>
+            <td>
+                <button onclick="deleteBooking(${b.id})">Delete</button>
+                <button onclick="editBooking(${b.id})">Edit</button>
+            </td>
+        </tr>`;
+    });
+});
+</script>
+
+<script>
+// Delete booking
+function deleteBooking(id) {
+    fetch(`http://localhost:5000/delete/${id}`, { method: "DELETE" })
+    .then(res => res.text())
+    .then(msg => { alert(msg); location.reload(); });
+}
+
+// Edit booking
+function editBooking(id) {
+    const newDate = prompt("Enter new date (YYYY-MM-DD):");
+    if (!newDate) return;
+
+    fetch(`http://localhost:5000/update/${id}`, {
+        method: "PUT",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({ date: newDate })
+    })
+    .then(res => res.text())
+    .then(msg => { alert(msg); location.reload(); });
+}
+
+// Logout function
+function logout() {
+    localStorage.removeItem("adminAuth");
+    window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>
